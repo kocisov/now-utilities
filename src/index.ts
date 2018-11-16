@@ -1,6 +1,6 @@
 import { ServerResponse } from 'http'
 
-export default function(response: ServerResponse) {
+export function handle(response: ServerResponse) {
   return {
     setStatus(code: number) {
       response.statusCode = code
@@ -14,10 +14,9 @@ export default function(response: ServerResponse) {
     },
 
     text(data: string) {
-      response.setHeader('Content-Type', 'text/plain')
-      return (data: string) => {
-        response.end(data)
-      }
+      response.setHeader('Content-Type', 'application/json')
+      response.write(data)
+      response.end()
     },
   }
 }
