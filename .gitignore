@@ -62,3 +62,5 @@ typings/
 
 # build
 lib
+dist
+.rpt2_cache

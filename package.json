@@ -3,10 +3,12 @@
   "version": "0.3.0",
   "description": "Utilities for serverless now^2.0",
   "main": "lib/index.js",
+  "module": "lib/index.es.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "tsc"
+    "uglify": "uglifyjs dist/index.js -c -m -o lib/index.js",
+    "build": "rimraf dist && rimraf lib/* && tsc && npm run uglify"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,9 @@
   "homepage": "https://github.com/Kocisov/now-utilities#readme",
   "devDependencies": {
     "@types/node": "^10.12.9",
-    "typescript": "^3.1.6"
+    "prettier": "^1.15.2",
+    "rimraf": "^2.6.2",
+    "typescript": "^3.1.6",
+    "uglify-js": "^3.4.9"
   }
 }
