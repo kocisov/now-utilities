@@ -4,6 +4,7 @@
     "module": "commonjs",
     "outDir": "./lib",
     "strict": true,
-    "target": "es5"
+    "target": "es5",
+    "lib": ["es2015"]
   }
 }

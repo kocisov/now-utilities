@@ -1,22 +1,2 @@
-import { ServerResponse } from 'http'
-
-export function handle(response: ServerResponse) {
-  return {
-    setStatus(code: number) {
-      response.statusCode = code
-      return this
-    },
-
-    json(data: {} | any[]) {
-      response.setHeader('Content-Type', 'application/json')
-      response.write(JSON.stringify(data, null, 2))
-      response.end()
-    },
-
-    text(data: string) {
-      response.setHeader('Content-Type', 'application/json')
-      response.write(data)
-      response.end()
-    },
-  }
-}
+export { default as handle } from './handle'
+export { default as body } from './body'
